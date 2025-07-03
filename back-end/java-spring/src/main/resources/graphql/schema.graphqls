@@ -1,0 +1,130 @@
+type Query {
+    authUser(email: String): User
+    exitUser: Boolean
+    isSessionActive: Boolean
+}
+
+type User {
+    id: ID
+    email: String
+}
+
+type UserProfile {
+    jurisdiction: StateOrTerritory
+    personalDetails: PersonalDetails!
+    personalPhoto: Image
+    addressHistory: [Address]!
+    employmentHistory: [Employment]!
+    dependents: [Dependent]!
+    emergencyContact: EmergencyContact
+}
+
+type PersonalDetails {
+    firstName: String
+    lastName: String
+    dateOfBirth: Date
+    phoneNumber: String
+    gender: Gender
+}
+
+type Address {
+    unitOrApartment: String
+    streetNumber: String
+    streetName: String
+    locality: String
+    state: StateOrTerritory
+    postcode: String
+}
+
+type Employment {
+    category: EmploymentCategory
+    companyName: String
+    jobTitle: String
+    yearStarted: Int
+    yearEnded: Int
+}
+
+type Dependent {
+    age: Int
+    relationship: DependentRelationship
+    gender: Gender
+}
+
+type EmergencyContact {
+    name: String
+    relationship: EmergencyRelationship
+    phoneNumber: String
+    email: String
+}
+
+type Date {
+    day: Int
+    month: Int
+    year: Int
+}
+
+type Image {
+    url: String
+    name: String
+    type: String
+}
+
+enum Gender {
+    FEMALE,
+    MALE,
+    NON_BINARY,
+    NOT_SPECIFIED
+}
+
+enum DependentRelationship {
+    AUNT,
+    COUSIN,
+    DAUGHTER,
+    FATHER,
+    GRANDFATHER,
+    GRANDMOTHER,
+    MOTHER,
+    NEPHEW,
+    NIECE,
+    SON,
+    UNCLE
+}
+
+enum MaritalRelationship {
+    HUSBAND,
+    WIFE,
+    SPOUSE,
+    PARTNER
+}
+
+enum EmergencyRelationship {
+    PARENT,
+    SIBLING,
+    CHILD,
+    GRANDPARENT,
+    OTHER_RELATIVE,
+    SPOUSE,
+    PARTNER,
+    FRIEND,
+    COLLEAGUE,
+    OTHER
+}
+
+enum StateOrTerritory {
+    ACT,
+    NSW,
+    NT,
+    QLD,
+    SA,
+    TAS,
+    VIC,
+    WA
+}
+
+enum EmploymentCategory {
+    UNEMPLOYED,
+    EMPLOYED,
+    SELF_EMPLOYED,
+    STUDENT,
+    RETIRED
+}
