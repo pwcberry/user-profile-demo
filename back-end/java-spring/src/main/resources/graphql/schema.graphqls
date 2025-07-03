@@ -10,13 +10,14 @@ type User {
 }
 
 type UserProfile {
-    jurisdiction: StateOrTerritory
+    jurisdiction: Jurisdiction
     personalDetails: PersonalDetails!
     personalPhoto: Image
     addressHistory: [Address]!
     employmentHistory: [Employment]!
     dependents: [Dependent]!
     emergencyContact: EmergencyContact
+    governmentIdentity: [GovernmentIdentification]
 }
 
 type PersonalDetails {
@@ -32,7 +33,7 @@ type Address {
     streetNumber: String
     streetName: String
     locality: String
-    state: StateOrTerritory
+    state: Jurisdiction
     postcode: String
 }
 
@@ -42,6 +43,7 @@ type Employment {
     jobTitle: String
     yearStarted: Int
     yearEnded: Int
+    abnOrAcn: String
 }
 
 type Dependent {
@@ -55,6 +57,13 @@ type EmergencyContact {
     relationship: EmergencyRelationship
     phoneNumber: String
     email: String
+}
+
+type GovernmentIdentification {
+    name: String!
+    value: String!
+    jurisdiction: Jurisdiction!
+    expiry: Date
 }
 
 type Date {
@@ -110,7 +119,7 @@ enum EmergencyRelationship {
     OTHER
 }
 
-enum StateOrTerritory {
+enum Jurisdiction {
     ACT,
     NSW,
     NT,
@@ -118,7 +127,9 @@ enum StateOrTerritory {
     SA,
     TAS,
     VIC,
-    WA
+    WA,
+    AUSTRALIA,
+    OVERSEAS
 }
 
 enum EmploymentCategory {
