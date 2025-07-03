@@ -1,6 +1,13 @@
-### GET request to example server
 GRAPHQL http://localhost:8080/graphql
+#Cookie: authtoken=MjAyNS0wNy0wM1QwNToyNzo1NC4xMzZaOmExMWJiMWQxLTIwNWItNGRjNS1hYjEwLTk4YWIzZGMwYWFhNA==;
 
+query ($email: String!) {
+    authUser(email: $email) {
+        id
+    }
+}
 
-
+{
+    "email": "pwcberry@gmail.com"
+}
 ###
