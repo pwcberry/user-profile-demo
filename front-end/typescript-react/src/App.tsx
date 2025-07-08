@@ -1,11 +1,11 @@
-import Navigation from "./component/Navigation.tsx";
-import ProfileDetails from "./component/ProfileDetails.tsx";
+import Navigation from "./layout/Navigation.tsx";
+import DetailsCanvas from "./layout/DetailsCanvas.tsx";
 
 function App() {
     return (
         <main>
             <Navigation />
-            <ProfileDetails />
+            <DetailsCanvas />
         </main>
     );
 }
