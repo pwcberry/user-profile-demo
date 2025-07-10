@@ -1,14 +1,14 @@
-import "@salesforce-ux/design-system/css/vertical-navigation/list/index.css";
+import { NavLink } from "react-router";
 
 function Navigation() {
     return (
-        <nav className="profile-nav slds-nav-vertical">
+        <nav className="">
            <ul>
-               <li className="slds-nav-vertical__item"><a href="#" className="slds-nav-vertical__action">Your profile</a></li>
-               <li className="slds-nav-vertical__item"><a href="#" className="slds-nav-vertical__action">Personal details</a></li>
-               <li className="slds-nav-vertical__item"><a href="#" className="slds-nav-vertical__action">Address history</a></li>
-               <li className="slds-nav-vertical__item"><a href="#" className="slds-nav-vertical__action">Work history</a></li>
-               <li className="slds-nav-vertical__item"><a href="#" className="slds-nav-vertical__action">Tax File Number</a></li>
+               <li className=""><NavLink to="/" className="">Your profile</NavLink></li>
+               <li className=""><NavLink to="/personal-details" className="">Personal details</NavLink></li>
+               <li className=""><NavLink to="/address-history" className="">Address history</NavLink></li>
+               <li className=""><NavLink to="/work-history" className="">Work history</NavLink></li>
+               <li className=""><NavLink to="/government-identity"  className="">Tax File Number</NavLink></li>
            </ul>
         </nav>
     );

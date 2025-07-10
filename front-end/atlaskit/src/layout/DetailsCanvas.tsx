@@ -1,9 +1,9 @@
-import Profile from "../page/Profile.tsx";
+import { Outlet } from "react-router";
 
 function DetailsCanvas() {
     return (
         <article>
-            <Profile/>
+            <Outlet/>
         </article>
     );
 }
