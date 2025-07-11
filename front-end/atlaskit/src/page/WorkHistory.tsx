@@ -5,13 +5,13 @@ async function translate(formData: FormData) {
         json() {
             return {
                 status: formData.get("status"),
-            }
-        }
+            };
+        },
     };
 }
 
 async function submitForm(formData: FormData) {
-    console.log("Employment submitted")
+    console.log("Employment submitted");
     const response = await translate(formData);
     console.log(response.json());
 }
@@ -35,7 +35,7 @@ function WorkHistory() {
                 </fieldset>
             </Form>
         </>
-    )
+    );
 }
 
 export default WorkHistory;

@@ -5,13 +5,13 @@ async function translate(formData: FormData) {
         json() {
             return {
                 identificationValue: formData.get("identificationValue"),
-            }
-        }
+            };
+        },
     };
 }
 
 async function submitForm(formData: FormData) {
-    console.log("Government identity submitted")
+    console.log("Government identity submitted");
     const response = await translate(formData);
     console.log(response.json());
 }
@@ -24,11 +24,11 @@ function GovernmentIdentity() {
                 <fieldset>
                     <div>
                         <p>What is your tax file number?</p>
-                        <input type="text" name="identificationValue"/>
+                        <input type="text" name="identificationValue" />
                     </div>
                 </fieldset>
             </Form>
         </>
-    )
+    );
 }
 export default GovernmentIdentity;

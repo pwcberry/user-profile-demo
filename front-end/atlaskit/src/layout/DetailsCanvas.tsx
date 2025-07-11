@@ -3,7 +3,7 @@ import { Outlet } from "react-router";
 function DetailsCanvas() {
     return (
         <article>
-            <Outlet/>
+            <Outlet />
         </article>
     );
 }

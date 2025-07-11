@@ -13,12 +13,12 @@ async function translate(formData: FormData) {
     return {
         json() {
             return result;
-        }
-    }
+        },
+    };
 }
 
 async function submitForm(formData: FormData) {
-    console.log("Personal details submitted")
+    console.log("Personal details submitted");
     const response = await translate(formData);
     console.log(response.json());
 }
@@ -31,24 +31,24 @@ function PersonalDetails() {
                 <fieldset>
                     <div>
                         <label>First name</label>
-                        <input type="text" name="firstName"/>
+                        <input type="text" name="firstName" />
                     </div>
                     <div>
                         <label>Last name</label>
-                        <input type="text" name="lastName"/>
+                        <input type="text" name="lastName" />
                     </div>
                     <div>
                         <label>Date of birth</label>
-                        <input type="text" name="dateOfBirth"/>
+                        <input type="text" name="dateOfBirth" />
                     </div>
                     <div>
                         <label>Phone number</label>
-                        <input type="text" name="phoneNumber"/>
+                        <input type="text" name="phoneNumber" />
                     </div>
                 </fieldset>
             </Form>
         </>
-    )
+    );
 }
 
 export default PersonalDetails;

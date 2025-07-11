@@ -1,8 +1,8 @@
-import {useNavigate} from "react-router";
-import {useFormStatus} from "react-dom";
-import type {ReactNode} from "react";
-import type {NavigateFunction} from "react-router";
-import type {FormAction} from "../types";
+import { useNavigate } from "react-router";
+import { useFormStatus } from "react-dom";
+import type { ReactNode } from "react";
+import type { NavigateFunction } from "react-router";
+import type { FormAction } from "../types";
 
 interface FormProps {
     action: FormAction;
@@ -17,19 +17,25 @@ function handleSubmit(action: FormAction, navigate: NavigateFunction) {
 }
 
 function SubmitButton() {
-    const {pending} = useFormStatus();
-    return <button type="submit" className="button button--primary" disabled={pending}>Save and exit</button>
+    const { pending } = useFormStatus();
+    return (
+        <button type="submit" className="button button--primary" disabled={pending}>
+            Save and exit
+        </button>
+    );
 }
 
-function Form({action, children}: FormProps) {
+function Form({ action, children }: FormProps) {
     const navigate = useNavigate();
 
     return (
         <form action={handleSubmit(action, navigate)}>
             {children}
             <div className="form__footer">
-                <button type="button" className="button button--secondary" onClick={() => navigate("/")}>Cancel</button>
-                <SubmitButton/>
+                <button type="button" className="button button--secondary" onClick={() => navigate("/")}>
+                    Cancel
+                </button>
+                <SubmitButton />
             </div>
         </form>
     );
