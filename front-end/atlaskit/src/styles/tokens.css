@@ -108,7 +108,7 @@
     --color-white: var(--color-neutral-0);
     --color-red: var(--color-red-300);
     --color-green: var(--color-green-300);
-    --color-blue: var(--color-blue-300);
+    --color-blue: var(--color-blue-400);
     --color-teal: var(--color-teal-300);
     --color-purple: var(--color-purple-300);
     --color-yellow: var(--color-yellow-200);
@@ -155,7 +155,6 @@
     --border-radius-200: 0.5rem;
     --border-radius-300: 0.75rem;
     --border-radius-400: 1rem;
-    --border-radius-circle: 2002rem;
     --border-width: 0.0625rem;
     --border-width-0: 0rem;
     --border-width-indicator: 0.1875rem;
