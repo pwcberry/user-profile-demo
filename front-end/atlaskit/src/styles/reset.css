@@ -30,10 +30,10 @@ html {
 }
 
 body {
-    background-color: var(--ds-surface, #fff);
-    color: var(--ds-text, #172b4d);
+    background-color: var(--surface-color);
+    color: var(--text-color);
     font: var(
-        --ds-font-body,
+        --font-body,
         normal 400 14px/1.42857142857143 -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
@@ -64,35 +64,35 @@ blockquote,
 pre,
 form,
 table {
-    margin: var(--ds-space-150, 12px) 0 0 0;
+    margin: var(--space-150, 12px) 0 0 0;
 }
 
 /* Links */
 a {
-    color: var(--ds-link, #0052cc);
+    color: var(--link-color);
     text-decoration: none;
 }
 a:hover {
-    color: var(--ds-link, #0065ff);
+    color: var(--link-hover-color);
     text-decoration: underline;
 }
 a:active {
-    color: var(--ds-link-pressed, #0747a6);
+    color: var(--link-pressed);
 }
 a:focus-visible {
-    outline: var(--ds-border-width-outline, 2px) solid var(--ds-border-focused, #2684ff);
-    outline-offset: var(--ds-space-025, 2px);
+    outline: var(--border-width-outline, 2px) solid var(--border-focused, #2684ff);
+    outline-offset: var(--space-025, 2px);
 }
 @supports not selector(*:focus-visible) {
     a:focus {
-        outline: var(--ds-border-width-outline, 2px) solid var(--ds-border-focused, #4c9aff);
-        outline-offset: var(--ds-space-025, 2px);
+        outline: var(--border-width-outline, 2px) solid var(--border-focused, #4c9aff);
+        outline-offset: var(--space-025, 2px);
     }
 }
 /* Headings */
 h1 {
     font: var(
-        --ds-font-heading-xlarge,
+        --font-heading-xlarge,
         600 2.0714285714285716em/1.103448275862069 -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
@@ -104,12 +104,12 @@ h1 {
         "Helvetica Neue",
         sans-serif
     );
-    color: var(--ds-text);
-    margin-top: var(--ds-space-500);
+    color: var(--text-color);
+    margin-top: var(--space-500);
 }
 h2 {
     font: var(
-        --ds-font-heading-large,
+        --font-heading-large,
         500 1.7142857142857142em/1.1666666666666667 -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
@@ -121,12 +121,12 @@ h2 {
         "Helvetica Neue",
         sans-serif
     );
-    color: var(--ds-text);
-    margin-top: var(--ds-space-500);
+    color: var(--text-color);
+    margin-top: var(--space-500);
 }
 h3 {
     font: var(
-        --ds-font-heading-medium,
+        --font-heading-medium,
         500 1.4285714285714286em/1.2 -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
@@ -138,12 +138,12 @@ h3 {
         "Helvetica Neue",
         sans-serif
     );
-    color: var(--ds-text);
+    color: var(--text-color);
     margin-top: 28px;
 }
 h4 {
     font: var(
-        --ds-font-heading-small,
+        --font-heading-small,
         600 1.1428571428571428em/1.25 -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
@@ -155,12 +155,12 @@ h4 {
         "Helvetica Neue",
         sans-serif
     );
-    color: var(--ds-text);
-    margin-top: var(--ds-space-300);
+    color: var(--text-color);
+    margin-top: var(--space-300);
 }
 h5 {
     font: var(
-        --ds-font-heading-xsmall,
+        --font-heading-xsmall,
         600 1em/1.1428571428571428 -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
@@ -172,12 +172,12 @@ h5 {
         "Helvetica Neue",
         sans-serif
     );
-    color: var(--ds-text);
-    margin-top: var(--ds-space-200);
+    color: var(--text-color);
+    margin-top: var(--space-200);
 }
 h6 {
     font: var(
-        --ds-font-heading-xxsmall,
+        --font-heading-xxsmall,
         600 0.8571428571428571em/1.3333333333333333 -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
@@ -189,8 +189,8 @@ h6 {
         "Helvetica Neue",
         sans-serif
     );
-    color: var(--ds-text);
-    margin-top: var(--ds-space-250);
+    color: var(--text-color);
+    margin-top: var(--space-250);
     text-transform: uppercase;
 }
 
@@ -198,13 +198,13 @@ h6 {
 ul,
 ol,
 dl {
-    padding-left: var(--ds-space-500, 40px);
+    padding-left: var(--space-500, 40px);
 }
 
 dd,
 dd + dt,
 li + li {
-    margin-top: var(--ds-space-050, 4px);
+    margin-top: var(--space-050, 4px);
 }
 
 ul ul:not(:first-child),
@@ -215,7 +215,7 @@ ul ol:not(:first-child),
 ul style:first-child ~ * + ol,
 ol ol:not(:first-child),
 ol style:first-child ~ * + ol {
-    margin-top: var(--ds-space-050, 4px);
+    margin-top: var(--space-050, 4px);
 }
 
 /* remove top margin for first element */
@@ -257,11 +257,11 @@ q {
 }
 blockquote {
     border: none;
-    padding-left: var(--ds-space-500, 40px);
+    padding-left: var(--space-500, 40px);
 }
 [dir="rtl"] blockquote {
     padding-left: 0;
-    padding-right: var(--ds-space-500, 40px);
+    padding-right: var(--space-500, 40px);
 }
 
 blockquote::before,
@@ -294,7 +294,7 @@ blockquote > :last-child {
 /* Other typographical elements */
 small {
     font: var(
-        --ds-font-body-small,
+        --font-body-small,
         normal 400 11px/16px ui-sans-serif,
         -apple-system,
         BlinkMacSystemFont,
@@ -318,7 +318,7 @@ cite {
 }
 
 abbr {
-    border-bottom: 1px var(--ds-border, #ccc) dotted;
+    border-bottom: 1px var(--border-color, #ccc) dotted;
     cursor: help;
 }
 
@@ -339,13 +339,13 @@ table {
 thead,
 tbody,
 tfoot {
-    border-bottom: 2px solid var(--ds-border, #dfe1e6);
+    border-bottom: 2px solid var(--border-color, #dfe1e6);
 }
 
 td,
 th {
     border: none;
-    padding: var(--ds-space-050, 4px) var(--ds-space-100, 8px);
+    padding: var(--space-050, 4px) var(--space-100, 8px);
     text-align: left;
 }
 
@@ -367,7 +367,7 @@ th:last-child {
 
 caption {
     font: var(
-        --ds-font-heading-medium,
+        --font-heading-medium,
         500 1.4285714285714286em/1.2 ui-sans-serif,
         -apple-system,
         BlinkMacSystemFont,
@@ -377,9 +377,9 @@ caption {
         sans-serif
     );
     letter-spacing: -0.008em;
-    color: var(--ds-text);
+    color: var(--text-color);
     margin-top: 28px;
-    margin-bottom: var(--ds-space-100, 8px);
+    margin-bottom: var(--space-100, 8px);
     text-align: left;
 }
 
