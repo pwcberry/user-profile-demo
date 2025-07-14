@@ -17,6 +17,11 @@ body {
         sans-serif;
 }
 
+main {
+    width: 1024px;
+    margin: 0 auto;
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -89,4 +94,40 @@ body {
 
 .grid__col-start_4 {
     --grid-col-start: 4;
+}
+
+.nav {
+    ul, li {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        display: block;
+        padding-block: var(--space-100);
+        padding-inline: var(--space-075);
+        color: var(--text-color);
+        border: 1px solid transparent;
+
+        &:hover {
+            text-decoration: none;
+            color: var(--color-neutral-100);
+            background: var(--color-alpha-neutral-20);
+        }
+
+        &:visited {
+            color: var(--text-color);
+        }
+
+        &:focus {
+            outline: 1px solid var(--color-neutral-30);
+        }
+
+        &.active {
+            border-left-width: 2px;
+            border-left-color: var(--color-neutral-90);
+            color: var(--color-neutral-100);
+        }
+    }
 }

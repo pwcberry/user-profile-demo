@@ -2,7 +2,7 @@ import { NavLink } from "react-router";
 
 function Navigation() {
   return (
-    <nav className="grid__col-span_2">
+    <nav className="grid__col-span_2 nav">
       <ul>
         <li>
           <NavLink to="/">Your profile</NavLink>
