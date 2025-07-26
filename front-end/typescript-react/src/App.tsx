@@ -9,7 +9,7 @@ import GovernmentIdentity from "./page/GovernmentIdentity.tsx";
 
 function App() {
   return (
-    <main className="grid">
+    <main className="grid slds-container_large">
       <Navigation />
       <Routes>
         <Route path="/" element={<DetailsCanvas />}>

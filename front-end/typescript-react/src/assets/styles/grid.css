@@ -1,0 +1,81 @@
+/**
+ * These styles make use of Salesforce Lightning Design System Styling Hooks.
+ */
+:root {
+    --grid-gap: var(--slds-g-spacing-4);
+    --grid-col-start: 1;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: var(--grid-gap);
+}
+
+.grid__col-span_1 {
+    grid-column-start: var(--grid-col-start);
+    grid-column-end: calc(var(--grid-col-start) + 1);
+}
+
+.grid__col-span_2 {
+    grid-column-start: var(--grid-col-start);
+    grid-column-end: calc(var(--grid-col-start) + 2);
+}
+
+.grid__col-span_3 {
+    grid-column-start: var(--grid-col-start);
+    grid-column-end: calc(var(--grid-col-start) + 3);
+}
+
+.grid__col-span_4 {
+    grid-column-start: var(--grid-col-start);
+    grid-column-end: calc(var(--grid-col-start) + 4);
+}
+
+.grid__col-span_5 {
+    grid-column-start: var(--grid-col-start);
+    grid-column-end: calc(var(--grid-col-start) + 5);
+}
+
+.grid__col-span_6 {
+    grid-column-start: var(--grid-col-start);
+    grid-column-end: calc(var(--grid-col-start) + 6);
+}
+
+.grid__col-span_7 {
+    grid-column-start: var(--grid-col-start);
+    grid-column-end: calc(var(--grid-col-start) + 7);
+}
+
+.grid__col-span_8 {
+    grid-column-start: var(--grid-col-start);
+    grid-column-end: calc(var(--grid-col-start) + 8);
+}
+
+.grid__col-span_9 {
+    grid-column-start: var(--grid-col-start);
+    grid-column-end: calc(var(--grid-col-start) + 9);
+}
+
+.grid__col-span_10 {
+    grid-column-start: var(--grid-col-start);
+    grid-column-end: calc(var(--grid-col-start) + 10);
+}
+
+.grid__col-span_11 {
+    grid-column-start: var(--grid-col-start);
+    grid-column-end: calc(var(--grid-col-start) + 11);
+}
+
+.grid__col-span_12 {
+    grid-column-start: var(--grid-col-start);
+    grid-column-end: calc(var(--grid-col-start) + 12);
+}
+
+.grid__col-start_3 {
+    --grid-col-start: 3;
+}
+
+.grid__col-start_4 {
+    --grid-col-start: 4;
+}

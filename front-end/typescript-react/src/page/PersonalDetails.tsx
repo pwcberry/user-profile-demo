@@ -29,21 +29,28 @@ function PersonalDetails() {
       <h1>Personal Details</h1>
       <Form action={submitForm}>
         <fieldset>
-          <div className="field-group">
-            <label>First name</label>
-            <input type="text" name="firstName" className="field-text" />
+          <div className="slds-form-element slds-form-element_stacked">
+            <label className="slds-form-element__label" htmlFor="input__first_name">First name</label>
+            <div className="slds-form-element__control">
+              <input type="text" name="firstName" id="input__first_name" className="slds-input"/>
+            </div>
           </div>
-          <div className="field-group">
-            <label>Last name</label>
-            <input type="text" name="lastName" className="field-text" />
+          <div className="slds-form-element slds-form-element_stacked">
+            <label className="slds-form-element__label" htmlFor="input__last_name">Last name</label>
+            <div className="slds-form-element__control">
+              <input type="text" name="lastName" id="input__last_name" className="slds-input"/>
+            </div>
           </div>
-          <div className="field-group">
-            <label>Date of birth</label>
-            <input type="text" name="dateOfBirth" className="field-date" />
+          <div className="slds-form-element slds-form-element_stacked">
+            <label className="slds-form-element__label">Date of birth</label>
+            <div className="slds-form-element__control">
+              <input type="text" name="dateOfBirth" className="slds-input"/></div>
           </div>
-          <div className="field-group">
-            <label>Phone number</label>
-            <input type="text" name="phoneNumber" className="field-tel" />
+          <div className="slds-form-element slds-form-element_stacked">
+            <label className="slds-form-element__label" htmlFor="input__phone_number">Phone number</label>
+            <div className="slds-form-element__control">
+              <input type="text" name="phoneNumber" id="input__phone_number" className="slds-input"/>
+            </div>
           </div>
         </fieldset>
       </Form>
