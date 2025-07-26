@@ -3,7 +3,7 @@ import "@salesforce-ux/design-system/css/vertical-navigation/list/index.css";
 
 function Navigation() {
   return (
-    <nav className="profile-nav slds-nav-vertical">
+    <nav className="profile-nav grid__col-span_3 slds-nav-vertical">
       <ul>
         <li className="slds-nav-vertical__item">
           <NavLink to="/" className="slds-nav-vertical__action">

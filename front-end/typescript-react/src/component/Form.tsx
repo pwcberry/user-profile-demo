@@ -1,5 +1,3 @@
-import "@salesforce-ux/design-system/css/buttons/base/index.css";
-import "@salesforce-ux/design-system/css/buttons/stateful/index.css";
 import { useNavigate } from "react-router";
 import { useFormStatus } from "react-dom";
 import type { ReactNode } from "react";
@@ -21,7 +19,7 @@ function handleSubmit(action: FormAction, navigate: NavigateFunction) {
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <button type="submit" className="slds-button slds-button_brand" disabled={pending}>
+    <button type="submit" className="slds-button slds-button_brand slds-col_bump-left" disabled={pending}>
       Save and exit
     </button>
   );
@@ -31,9 +29,9 @@ function Form({ action, children }: FormProps) {
   const navigate = useNavigate();
 
   return (
-    <form action={handleSubmit(action, navigate)}>
+    <form className="slds-form" action={handleSubmit(action, navigate)}>
       {children}
-      <footer className="form__footer">
+      <footer className="slds-grid slds-nowrap">
         <button type="button" className="slds-button slds-button_neutral" onClick={() => navigate("/")}>
           Cancel
         </button>
