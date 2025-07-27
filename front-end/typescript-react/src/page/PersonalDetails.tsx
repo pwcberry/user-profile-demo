@@ -1,4 +1,5 @@
 import Form from "../component/Form.tsx";
+import DatePicker from "../component/DatePicker.tsx";
 
 interface DataObject {
   [key: string]: string | number;
@@ -30,26 +31,28 @@ function PersonalDetails() {
       <Form action={submitForm}>
         <fieldset>
           <div className="slds-form-element slds-form-element_stacked">
-            <label className="slds-form-element__label" htmlFor="input__first_name">First name</label>
+            <label className="slds-form-element__label" htmlFor="input__first_name">
+              First name
+            </label>
             <div className="slds-form-element__control">
-              <input type="text" name="firstName" id="input__first_name" className="slds-input"/>
+              <input type="text" name="firstName" id="input__first_name" className="slds-input" />
             </div>
           </div>
           <div className="slds-form-element slds-form-element_stacked">
-            <label className="slds-form-element__label" htmlFor="input__last_name">Last name</label>
+            <label className="slds-form-element__label" htmlFor="input__last_name">
+              Last name
+            </label>
             <div className="slds-form-element__control">
-              <input type="text" name="lastName" id="input__last_name" className="slds-input"/>
+              <input type="text" name="lastName" id="input__last_name" className="slds-input" />
             </div>
           </div>
+          <DatePicker id="input__date_of_birth" name="dateOfBirth" label="Date of birth" />
           <div className="slds-form-element slds-form-element_stacked">
-            <label className="slds-form-element__label">Date of birth</label>
+            <label className="slds-form-element__label" htmlFor="input__phone_number">
+              Phone number
+            </label>
             <div className="slds-form-element__control">
-              <input type="text" name="dateOfBirth" className="slds-input"/></div>
-          </div>
-          <div className="slds-form-element slds-form-element_stacked">
-            <label className="slds-form-element__label" htmlFor="input__phone_number">Phone number</label>
-            <div className="slds-form-element__control">
-              <input type="text" name="phoneNumber" id="input__phone_number" className="slds-input"/>
+              <input type="text" name="phoneNumber" id="input__phone_number" className="slds-input" />
             </div>
           </div>
         </fieldset>
