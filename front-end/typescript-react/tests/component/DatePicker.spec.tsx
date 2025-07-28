@@ -20,7 +20,6 @@ describe("DatePicker", () => {
     expect(hiddenInput.name).toBe(FIELD_NAME);
     expect(componentRoot.className).to.include("slds-form-element");
   });
-
   it("should not display a value when the input value is not specified", () => {
     const { container, getByLabelText } = render(<DatePicker name={FIELD_NAME} id={FIELD_ID} label={FIELD_LABEL} />);
     const input = getByLabelText(FIELD_LABEL) as HTMLInputElement;
@@ -29,7 +28,6 @@ describe("DatePicker", () => {
     expect(input.value).toBe("");
     expect(hiddenInput.value).toBe("");
   });
-
   it("should render a formatted date in the field when the input value is specified", () => {
     const FIELD_VALUE = "1996-05-29T10:00:00+10:00";
     const { container, getByLabelText } = render(
