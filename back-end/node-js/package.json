@@ -1,0 +1,12 @@
+{
+  "name": "user-profile-demo-backend-node-js",
+  "version": "0.0.0",
+  "description": "",
+  "license": "UNLICENSED",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

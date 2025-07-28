@@ -1,0 +1,42 @@
+{
+  "jurisdiction": "VIC",
+  "personalDetails": {
+    "firstName": "Dennis",
+    "lastName": "Richards",
+    "dateOfBirth": {
+      "day": 2,
+      "month": 12,
+      "year": 1977
+    },
+    "gender": "MALE",
+    "phoneNumber": "0499 123 123"
+  },
+  "personalPhoto": null,
+  "addressHistory": [
+    {
+      "streetNumber": "1",
+      "streetName": "Barker Street",
+      "locality": "Glen Waverley",
+      "state": "VIC",
+      "postcode": ""
+    }
+  ],
+  "employmentHistory": [
+    {
+      "category": "UNEMPLOYED"
+    }
+  ],
+  "dependents": [
+    {
+      "age": 12,
+      "relationship": "DAUGHTER",
+      "gender": "FEMALE"
+    }
+  ],
+  "emergencyContact": {
+    "name": "Laura Green",
+    "relationship": "SPOUSE",
+    "phoneNumber": "0498 789 567"
+  },
+  "governmentIdentity": []
+}
