@@ -2,11 +2,11 @@
  * These styles make use of Salesforce Lightning Design System Styling Hooks.
  */
 .form__footer {
-    margin-block-start: var(--slds-g-spacing-4);
-    padding-block-start: var(--slds-g-spacing-4);
-    border-block-start: 1px solid var(--slds-g-color-accent-container-1);
+  margin-block-start: var(--slds-g-spacing-4);
+  padding-block-start: var(--slds-g-spacing-4);
+  border-block-start: 1px solid var(--slds-g-color-accent-container-1);
 
-    button {
-        width: 100%;
-    }
+  button {
+    width: 100%;
+  }
 }
