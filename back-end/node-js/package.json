@@ -1,0 +1,16 @@
+{
+  "name": "node-server-plain",
+  "version": "0.0.0",
+  "description": "",
+  "license": "UNLICENSED",
+  "author": "",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "pretty": "prettier --write .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
+}
