@@ -9,6 +9,7 @@ export default defineConfig({
     port: 4000,
     proxy: {
       "/api": "http://localhost:8080",
+      "/api/profile": "http://localhost:8080",
     },
   },
   test: {

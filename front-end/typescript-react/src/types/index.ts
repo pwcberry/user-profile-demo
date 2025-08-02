@@ -5,6 +5,7 @@ export type Primitive = string | number | boolean;
 export type KeyedObject = {
   [key: string]: Primitive | NonValue;
 };
+export type Nullable<T> = T | null;
 
 export type User = {
   id: UUID;
