@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "test": "vitest"
   },
-  "author": "Peter Berry <pete@brunsnik.net>",
+  "author": "Peter Berry<pete@brunsnik.net>",
   "dependencies": {
     "@salesforce-ux/design-system": "^2.27.2",
     "date-fns": "^4.1.0",

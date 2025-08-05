@@ -1,11 +1,11 @@
-enum Gender {
+export enum Gender {
   FEMALE = "FEMALE",
   MALE = "MALE",
   NON_BINARY = "NON_BINARY",
   NOT_SPECIFIED = "NOT_SPECIFIED",
 }
 
-enum DependentRelationship {
+export enum DependentRelationship {
   AUNT = "AUNT",
   COUSIN = "COUSIN",
   DAUGHTER = "DAUGHTER",
@@ -19,7 +19,7 @@ enum DependentRelationship {
   UNCLE = "UNCLE",
 }
 
-enum EmergencyRelationship {
+export enum EmergencyRelationship {
   PARENT = "PARENT",
   SIBLING = "SIBLING",
   CHILD = "CHILD",
@@ -32,7 +32,7 @@ enum EmergencyRelationship {
   OTHER = "OTHER",
 }
 
-enum Jurisdiction {
+export enum Jurisdiction {
   ACT = "ACT",
   NSW = "NSW",
   NT = "NT",
@@ -45,7 +45,7 @@ enum Jurisdiction {
   OVERSEAS = "OVERSEAS",
 }
 
-enum EmploymentCategory {
+export enum EmploymentCategory {
   UNEMPLOYED = "UNEMPLOYED",
   EMPLOYED = "EMPLOYED",
   SELF_EMPLOYED = "SELF_EMPLOYED",
@@ -55,11 +55,31 @@ enum EmploymentCategory {
 
 type int = number;
 
-export type StoredDate = {
-  day: int;
-  month: int;
+export class StoredDate {
   year: int;
-};
+  month: int;
+  day: int;
+
+  constructor(year: int, month: int, day: int) {
+    this.day = day;
+    this.month = month;
+    this.year = year;
+  }
+
+  set isoValue(value: string) {
+    this.day = parseInt(value.substring(8, 9));
+    this.month = parseInt(value.substring(5, 6));
+    this.year = parseInt(value.substring(0, 3));
+  }
+
+  get isoValue() {
+    return `${this.year}-${this.month.toString().padStart(2, "0")}-${this.day.toString().padStart(2, "0")}`;
+  }
+
+  toString() {
+    return this.isoValue;
+  }
+}
 
 export type Image = {
   url: string;
@@ -70,11 +90,11 @@ export type Image = {
 export type UserProfile = {
   jurisdiction: Jurisdiction;
   personalDetails: PersonalDetails;
-  personalPhoto: Image;
+  personalPhoto?: Image;
   addressHistory: Address[];
   employmentHistory: Employment[];
   dependents: Dependent[];
-  emergencyContact: EmergencyContact;
+  emergencyContact?: EmergencyContact;
   governmentIdentity: GovernmentIdentification[];
 };
 

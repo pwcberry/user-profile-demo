@@ -16,7 +16,7 @@ export interface Path {
 type MockTo = string | Partial<Path> | number;
 
 const TestForm = ({ action }: { action: FormAction }) => (
-  <Form action={action}>
+  <Form action={action} isChanged={false}>
     <fieldset>
       <p>
         <input type="text" name="the_field" />

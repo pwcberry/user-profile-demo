@@ -1,5 +1,9 @@
+import { useState, type ChangeEvent } from "react";
 import Form from "../component/Form.tsx";
 import DatePicker from "../component/DatePicker.tsx";
+import { useUserProfile } from "../context/UserProfileContext.ts";
+import type * as UserProfile from "../types/UserProfile.ts";
+import type { KeyedObject } from "../types";
 
 interface DataObject {
   [key: string]: string | number;
@@ -25,17 +29,37 @@ async function submitForm(formData: FormData) {
 }
 
 function PersonalDetails() {
+  const profile = useUserProfile();
+  const [data, setData] = useState<UserProfile.PersonalDetails>(profile.personalDetails);
+  const [hasChanged, setHasChanged] = useState(false);
+  console.log(profile.personalDetails.dateOfBirth.isoValue);
+
+  function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
+    console.log("Personal details changed", event.target.name);
+    const changedData = data as unknown as KeyedObject;
+    changedData[event.target.name] = event.target.value as string;
+    setData(changedData as unknown as UserProfile.PersonalDetails);
+    setHasChanged(true);
+  }
+
   return (
     <>
       <h1>Personal Details</h1>
-      <Form action={submitForm}>
+      <Form action={submitForm} isChanged={hasChanged}>
         <fieldset>
           <div className="slds-form-element slds-form-element_stacked">
             <label className="slds-form-element__label" htmlFor="input__first_name">
               First name
             </label>
             <div className="slds-form-element__control">
-              <input type="text" name="firstName" id="input__first_name" className="slds-input" />
+              <input
+                type="text"
+                value={data.firstName}
+                onChange={handleInputChange}
+                name="firstName"
+                id="input__first_name"
+                className="slds-input"
+              />
             </div>
           </div>
           <div className="slds-form-element slds-form-element_stacked">
@@ -43,16 +67,35 @@ function PersonalDetails() {
               Last name
             </label>
             <div className="slds-form-element__control">
-              <input type="text" name="lastName" id="input__last_name" className="slds-input" />
+              <input
+                type="text"
+                value={data.lastName}
+                onChange={handleInputChange}
+                name="lastName"
+                id="input__last_name"
+                className="slds-input"
+              />
             </div>
           </div>
-          <DatePicker id="input__date_of_birth" name="dateOfBirth" label="Date of birth" />
+          <DatePicker
+            value={data.dateOfBirth.isoValue}
+            id="input__date_of_birth"
+            name="dateOfBirth"
+            label="Date of birth"
+          />
           <div className="slds-form-element slds-form-element_stacked">
             <label className="slds-form-element__label" htmlFor="input__phone_number">
               Phone number
             </label>
             <div className="slds-form-element__control">
-              <input type="text" name="phoneNumber" id="input__phone_number" className="slds-input" />
+              <input
+                type="text"
+                value={data.phoneNumber}
+                onChange={handleInputChange}
+                name="phoneNumber"
+                id="input__phone_number"
+                className="slds-input"
+              />
             </div>
           </div>
         </fieldset>

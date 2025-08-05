@@ -6,6 +6,7 @@ import type { FormAction } from "../types";
 
 interface FormProps {
   action: FormAction;
+  isChanged?: boolean;
   children: ReactNode;
 }
 
@@ -16,17 +17,10 @@ function handleSubmit(action: FormAction, navigate: NavigateFunction) {
   };
 }
 
-function SubmitButton() {
-  const { pending } = useFormStatus();
-  return (
-    <button type="submit" className="slds-button slds-button_brand" disabled={pending}>
-      Save and exit
-    </button>
-  );
-}
-
-function Form({ action, children }: FormProps) {
+function Form({ action, isChanged = false, children }: FormProps) {
   const navigate = useNavigate();
+  const { pending } = useFormStatus();
+  const isSubmitButtonDisabled = !isChanged || pending;
 
   return (
     <form action={handleSubmit(action, navigate)}>
@@ -38,7 +32,9 @@ function Form({ action, children }: FormProps) {
           </button>
         </span>
         <span className="slds-col slds-size_1-of-3 slds-col_bump-left">
-          <SubmitButton />
+          <button type="submit" className="slds-button slds-button_brand" disabled={isSubmitButtonDisabled}>
+            Save and exit
+          </button>
         </span>
       </footer>
     </form>

@@ -1,6 +1,20 @@
-import { createContext } from "react";
-import type { Nullable, UserProfile } from "../types";
+import { createContext, useContext } from "react";
+import type { KeyedObject, UserProfile } from "../types";
 
-const UserProfileContext = createContext<Nullable<UserProfile>>(null);
+export type UserProfileAction = {
+  type: string;
+  payload: KeyedObject;
+};
 
-export default UserProfileContext;
+type UserProfileReducer = (action: UserProfileAction) => UserProfile;
+
+export const UserProfileContext = createContext<UserProfile | unknown>(null);
+export const UserProfileDispatchContext = createContext<UserProfileReducer | unknown>(null);
+
+export function useUserProfile() {
+  return useContext(UserProfileContext) as UserProfile;
+}
+
+export function useUserProfileDispatch() {
+  return useContext(UserProfileDispatchContext) as UserProfileReducer;
+}

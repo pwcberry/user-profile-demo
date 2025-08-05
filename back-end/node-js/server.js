@@ -31,7 +31,9 @@ async function getRequestBody(request) {
 async function fetchData() {
     const path = join(process.cwd(), "data/sample.json");
     const handle = await open(path);
-    return await handle.readFile({ encoding: "utf8"});
+    const data = await handle.readFile({ encoding: "utf8"});
+    await handle.close();
+    return data;
 }
 
 async function processRequest(request) {
@@ -59,8 +61,8 @@ async function processRequest(request) {
 
 function serve(port = 8080) {
     const server = createServer({keepAliveTimeout: 10000}, async (req, res) => {
-        const [statusCode, contentType, data] = await processRequest(req);
-        const contentLength = Buffer.byteLength(data, "utf8");
+        const [statusCode, contentType, content] = await processRequest(req);
+        const contentLength = Buffer.byteLength(content, "utf8");
 
         res.setHeaders(new Headers({
             "Content-Type": contentType,
@@ -68,7 +70,7 @@ function serve(port = 8080) {
         }));
         res.writeHead(statusCode);
 
-        res.write(data);
+        res.write(content);
         res.end("\n");
     });
 

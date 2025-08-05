@@ -5,6 +5,7 @@
   margin-block-start: var(--slds-g-spacing-4);
   padding-block-start: var(--slds-g-spacing-4);
   border-block-start: 1px solid var(--slds-g-color-accent-container-1);
+  padding-inline: var(--sds-g-spacing-1);
 
   button {
     width: 100%;
