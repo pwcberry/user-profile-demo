@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Route, Routes } from "react-router";
-import type { KeyedObject } from "./types";
+import type { KeyedObject, Nullable } from "./types";
 import { useUserProfileDispatch } from "./context/UserProfileContext.ts";
 import Navigation from "./layout/Navigation";
 import DetailsCanvas from "./layout/DetailsCanvas";
@@ -13,15 +13,22 @@ import GovernmentIdentity from "./page/GovernmentIdentity";
 function App() {
   const userProfileDispatch = useUserProfileDispatch();
   useEffect(() => {
-    async function fetchData() {
-      const response = await fetch("http://localhost:4000/api/profile");
-      if (response.ok && !ignore) {
-        const profile: KeyedObject = await response.json();
-        userProfileDispatch({ type: "LOAD", payload: profile });
-      }
-    }
     let ignore = false;
-    fetchData();
+
+    fetch("http://localhost:4000/api/profile")
+      .then((response) => {
+        if (response.ok && !ignore) {
+          return response.json();
+        } else {
+          return null;
+        }
+      })
+      .then((data: Nullable<KeyedObject>) => {
+        if (data !== null) {
+          userProfileDispatch({ type: "LOAD", payload: data });
+        }
+      });
+
     return () => {
       ignore = true;
     };

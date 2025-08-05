@@ -5,12 +5,8 @@ import { useUserProfile } from "../context/UserProfileContext.ts";
 import type * as UserProfile from "../types/UserProfile.ts";
 import type { KeyedObject } from "../types";
 
-interface DataObject {
-  [key: string]: string | number;
-}
-
 async function translate(formData: FormData) {
-  const result: DataObject = {};
+  const result: KeyedObject = {};
   for (const [key, value] of formData.entries()) {
     result[key] = value as string;
   }
@@ -32,10 +28,8 @@ function PersonalDetails() {
   const profile = useUserProfile();
   const [data, setData] = useState<UserProfile.PersonalDetails>(profile.personalDetails);
   const [hasChanged, setHasChanged] = useState(false);
-  console.log(profile.personalDetails.dateOfBirth.isoValue);
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
-    console.log("Personal details changed", event.target.name);
     const changedData = data as unknown as KeyedObject;
     changedData[event.target.name] = event.target.value as string;
     setData(changedData as unknown as UserProfile.PersonalDetails);
