@@ -54,32 +54,7 @@ export enum EmploymentCategory {
 }
 
 type int = number;
-
-export class StoredDate {
-  year: int;
-  month: int;
-  day: int;
-
-  constructor(year: int, month: int, day: int) {
-    this.day = day;
-    this.month = month;
-    this.year = year;
-  }
-
-  set isoValue(value: string) {
-    this.day = parseInt(value.substring(8, 9));
-    this.month = parseInt(value.substring(5, 6));
-    this.year = parseInt(value.substring(0, 3));
-  }
-
-  get isoValue() {
-    return `${this.year}-${this.month.toString().padStart(2, "0")}-${this.day.toString().padStart(2, "0")}`;
-  }
-
-  toString() {
-    return this.isoValue;
-  }
-}
+type ISODate = string;
 
 export type Image = {
   url: string;
@@ -101,7 +76,7 @@ export type UserProfile = {
 export type PersonalDetails = {
   firstName: string;
   lastName: string;
-  dateOfBirth: StoredDate;
+  dateOfBirth: ISODate;
   phoneNumber: string;
   gender: Gender;
 };
@@ -141,5 +116,5 @@ export type GovernmentIdentification = {
   name: string;
   value: string;
   jurisdiction: Jurisdiction;
-  expiry: StoredDate;
+  expiryDate: ISODate;
 };

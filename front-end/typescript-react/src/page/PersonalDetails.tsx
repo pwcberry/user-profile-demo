@@ -71,12 +71,7 @@ function PersonalDetails() {
               />
             </div>
           </div>
-          <DatePicker
-            value={data.dateOfBirth.isoValue}
-            id="input__date_of_birth"
-            name="dateOfBirth"
-            label="Date of birth"
-          />
+          <DatePicker value={data.dateOfBirth} id="input__date_of_birth" name="dateOfBirth" label="Date of birth" />
           <div className="slds-form-element slds-form-element_stacked">
             <label className="slds-form-element__label" htmlFor="input__phone_number">
               Phone number

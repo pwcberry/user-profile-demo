@@ -4,9 +4,7 @@ import {
   UserProfileDispatchContext,
   type UserProfileAction,
 } from "../context/UserProfileContext.ts";
-import { Gender, Jurisdiction, StoredDate, type UserProfile } from "../types";
-
-const DEFAULT_DATE_OF_BIRTH = new StoredDate(1970, 1, 1);
+import { Gender, Jurisdiction, type UserProfile } from "../types";
 
 const USER_PROFILE_DEFAULT: UserProfile = {
   jurisdiction: Jurisdiction.VIC,
@@ -14,7 +12,7 @@ const USER_PROFILE_DEFAULT: UserProfile = {
     firstName: "",
     lastName: "",
     phoneNumber: "",
-    dateOfBirth: DEFAULT_DATE_OF_BIRTH,
+    dateOfBirth: "1970-01-01",
     gender: Gender.NOT_SPECIFIED,
   },
   addressHistory: [],
@@ -26,10 +24,7 @@ const USER_PROFILE_DEFAULT: UserProfile = {
 function userProfileReducer(currentProfile: UserProfile, action: UserProfileAction) {
   switch (action.type) {
     case "LOAD": {
-      const loadedProfile = action.payload as unknown as UserProfile;
-      const { day, month, year } = loadedProfile.personalDetails.dateOfBirth;
-      loadedProfile.personalDetails.dateOfBirth = new StoredDate(year, month, day);
-      return loadedProfile;
+      return action.payload as unknown as UserProfile;
     }
   }
   return currentProfile;

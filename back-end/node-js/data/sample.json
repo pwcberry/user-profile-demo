@@ -3,11 +3,7 @@
   "personalDetails": {
     "firstName": "Dennis",
     "lastName": "Richards",
-    "dateOfBirth": {
-      "day": 2,
-      "month": 12,
-      "year": 1977
-    },
+    "dateOfBirth": "1977-12-02",
     "gender": "MALE",
     "phoneNumber": "0499 123 123"
   },

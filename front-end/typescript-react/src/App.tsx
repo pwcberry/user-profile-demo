@@ -16,12 +16,11 @@ function App() {
     let ignore = false;
 
     fetch("http://localhost:4000/api/profile")
-      .then((response) => {
+      .then((response): Promise<Nullable<KeyedObject>> => {
         if (response.ok && !ignore) {
-          return response.json();
-        } else {
-          return null;
+          return response.json() as Promise<KeyedObject>;
         }
+        return Promise.resolve(null);
       })
       .then((data: Nullable<KeyedObject>) => {
         if (data !== null) {
